@@ -1,5 +1,9 @@
 package Model;
 
+import Logic.Product;
+
+import java.util.ArrayList;
+
 /**
  * Created by vincent on 4-9-2016.
  */
@@ -9,5 +13,5 @@ public class KassaModel {
     //TODO Kiloprijs
     //TODO lijst
 
-    private
+    private ArrayList<Product> productList = new ArrayList<Product>();
 }

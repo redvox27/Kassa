@@ -1,5 +1,10 @@
 package Logic;
 
+
+
+import java.sql.*;
+
+
 /**
  * Created by vincent on 4-9-2016.
  */
@@ -10,10 +15,13 @@ public class Product {
     private String allergics;
     private String description;
 
-    public Product(int code){
-        this.code = code;
 
-        //TODO shit ophalen van de database jawohl.
+    public Product(int code, String name, int price, String allergics, String description) {
+        this.name = name;
+        this.code = code;
+        this.price = price;
+        this.allergics = allergics;
+        this.description = description;
     }
 
     public String getName(){
