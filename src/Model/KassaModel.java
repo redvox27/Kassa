@@ -23,7 +23,7 @@ public class KassaModel {
     public void printReceipt(){
         // naam en dan prijs van product
 
-        int totalPrice = 0;
+        double totalPrice = 0;
 
         for(Product product : productList){
             System.out.println(product.getName() + product.getPrice());

@@ -24,6 +24,10 @@ public class Product {
         this.description = description;
     }
 
+    public String toString() {
+        return name + ";" + code + ";" + price + ";" + allergics + ";" + description;
+    }
+
     public  String getName(){
         return name;
     }

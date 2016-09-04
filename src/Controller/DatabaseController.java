@@ -34,10 +34,9 @@ public class DatabaseController {
     }
 
     public Product getProductByCode(int productCode) {
-        //TODO query to database to retrieve product
         try {
             Statement stmt = KassaConnection.createStatement();
-            ResultSet result = stmt.executeQuery("SELECT FROM product WHERE id=\"" + productCode);
+            ResultSet result = stmt.executeQuery("SELECT * FROM product WHERE id=\'" + productCode + "\'");
             int price = 0;
             int id = 0;
             String name = "";
@@ -62,5 +61,13 @@ public class DatabaseController {
 
     }
 
-
+    public void addProduct(String productname, int price, String description, String allergy) {
+        try {
+            Statement stmt = KassaConnection.createStatement();
+            stmt.executeUpdate("INSERT INTO product VALUES (NULL ,\'" + price + "\', \'" + productname + "\', \'" + allergy + "\', \'" + description + "\')");
+        }
+        catch (SQLException ex) {
+            throw new IllegalStateException("Cannot execute query", ex);
+        }
+    }
 }
