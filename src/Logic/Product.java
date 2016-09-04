@@ -4,7 +4,7 @@ package Logic;
  * Created by vincent on 4-9-2016.
  */
 public class Product {
-    private String name;
+    private  String name;
     private int code;
     private int price;
     private String allergics;
@@ -16,7 +16,7 @@ public class Product {
         //TODO shit ophalen van de database jawohl.
     }
 
-    public String getName(){
+    public  String getName(){
         return name;
     }
 
