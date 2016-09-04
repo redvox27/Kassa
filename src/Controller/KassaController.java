@@ -17,8 +17,5 @@ public class KassaController {
 
     public KassaController() {
 
-
-
-
     }
 }
