@@ -1,6 +1,6 @@
 package Model;
 
-import Logic.Employees;
+import Logic.Employee;
 import Logic.Product;
 
 import java.util.ArrayList;
@@ -10,7 +10,7 @@ import java.util.ArrayList;
  */
 public class KassaModel {
     private ArrayList<Product> productList = new ArrayList<Product>();
-    private ArrayList<Employees> employeeList = new ArrayList<Employees>();
+    private ArrayList<Employee> employeeList = new ArrayList<Employee>();
     //TODO  sql connectie
     //TODO Producten toevoegen
     //TODO Kiloprijs
@@ -38,7 +38,7 @@ public class KassaModel {
 
     }
 
-    public void addEmployees(Employees newEmployee){
+    public void addEmployees(Employee newEmployee){
         if(newEmployee == null){
             System.out.println("Vul een naam in");
         }

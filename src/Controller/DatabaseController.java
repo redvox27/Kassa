@@ -10,14 +10,26 @@ import java.sql.SQLException;
 public class DatabaseController {
 
     private Connection KassaConnection;
-    private String connectionString = "jdbc:mysql://localhost:3306/DBNAME\", \"usrname\", \"pswd\"";
+    private String databaseUrl = "jdbc:mysql://localhost:3306/kassa?autoReconnect=true&useSSL=false";
+    private String databaseUsername = "root";
+    private String databasePassword = "";
 
     public DatabaseController() {
+        System.out.println("Loading driver...");
+
         try {
-            KassaConnection = DriverManager.getConnection(connectionString);
+            Class.forName("com.mysql.jdbc.Driver");
+            System.out.println("Driver loaded!");
+        } catch (ClassNotFoundException e) {
+            throw new IllegalStateException("Cannot find the driver in the classpath!", e);
+        }
+
+        System.out.println("Connecting database...");
+        try {
+            KassaConnection = DriverManager.getConnection(databaseUrl, databaseUsername, databasePassword);
         }
         catch (SQLException ex) {
-
+            throw new IllegalStateException("Cannot connect the database!", ex);
         }
     }
 }
