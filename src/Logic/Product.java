@@ -15,4 +15,24 @@ public class Product {
 
         //TODO shit ophalen van de database jawohl.
     }
+
+    public String getName(){
+        return name;
+    }
+
+    public int getCode(){
+        return code;
+    }
+
+    public int getPrice(){
+        return price;
+    }
+
+    public String getAllergics(){
+        return allergics;
+    }
+
+    public String getDescription() {
+        return description;
+    }
 }
