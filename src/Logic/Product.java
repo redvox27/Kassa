@@ -9,7 +9,7 @@ import java.sql.*;
  * Created by vincent on 4-9-2016.
  */
 public class Product {
-    private String name;
+    private  String name;
     private int code;
     private int price;
     private String allergics;
@@ -24,7 +24,7 @@ public class Product {
         this.description = description;
     }
 
-    public String getName(){
+    public  String getName(){
         return name;
     }
 
