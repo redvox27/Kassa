@@ -16,6 +16,11 @@ public class KassaController {
 
 
     public KassaController() {
+        view = new KassaView();
+        databaseController = new DatabaseController();
 
+
+        model = new KassaModel(databaseController.getEmployees());
+        System.out.println(model.getEmployee(1).toString());
     }
 }

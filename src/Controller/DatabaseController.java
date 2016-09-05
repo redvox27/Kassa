@@ -1,8 +1,10 @@
 package Controller;
 
+import Logic.Employee;
 import Logic.Product;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 /**
  * Created by RonOS on 9/4/2016.
@@ -65,6 +67,54 @@ public class DatabaseController {
         try {
             Statement stmt = KassaConnection.createStatement();
             stmt.executeUpdate("INSERT INTO product VALUES (NULL ,\'" + price + "\', \'" + productname + "\', \'" + allergy + "\', \'" + description + "\')");
+        }
+        catch (SQLException ex) {
+            throw new IllegalStateException("Cannot execute query", ex);
+        }
+    }
+
+    public ArrayList<Employee> getEmployees() {
+        try {
+            ArrayList<Employee> employeeArrayList = new ArrayList<Employee>();
+            Statement stmt = KassaConnection.createStatement();
+            ResultSet result = stmt.executeQuery("SELECT * FROM employee");
+            int id = 0;
+            String name = "";
+            while (result.next())
+            {
+                id = result.getInt("id");
+                name = result.getString("name");
+                employeeArrayList.add(new Employee(id, name));
+            }
+            return employeeArrayList;
+        }
+        catch (SQLException ex) {
+            throw new IllegalStateException("Cannot execute query", ex);
+        }
+    }
+
+    public Employee getEmployeeByCode(int employeeCode) {
+        try {
+            Statement stmt = KassaConnection.createStatement();
+            ResultSet result = stmt.executeQuery("SELECT * FROM employee WHERE id=\'" + employeeCode + "\'");
+            int id = 0;
+            String name = "";
+            while (result.next())
+            {
+                id = result.getInt("id");
+                name = result.getString("name");
+            }
+            return new Employee(id, name);
+        }
+        catch (SQLException ex) {
+            throw new IllegalStateException("Cannot execute query", ex);
+        }
+    }
+
+    public void addEmployee(String name) {
+        try {
+            Statement stmt = KassaConnection.createStatement();
+            stmt.executeUpdate("INSERT INTO employee VALUES (NULL ,\'" + name + "\')");
         }
         catch (SQLException ex) {
             throw new IllegalStateException("Cannot execute query", ex);

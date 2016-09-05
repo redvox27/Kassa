@@ -1,6 +1,7 @@
 package Main;
 
 import Controller.DatabaseController;
+import Controller.KassaController;
 import Logic.Product;
 
 import java.sql.Connection;
@@ -15,9 +16,6 @@ public class Main {
 
     public static void main(final String[] args) {
 
-        DatabaseController database = new DatabaseController();
-        //Product testProduct = database.getProductByCode(1);
-        database.addProduct("Gehaktbal", 1000, "Een gehaktbal", "Geen");
-        //System.out.println(testProduct.toString());
+        KassaController kassa = new KassaController();
     }
 }
