@@ -4,6 +4,8 @@ import Logic.Product;
 import Model.KassaModel;
 import Vieuw.AbstractView;
 import Vieuw.KassaView;
+
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,7 +21,7 @@ public class KassaController {
 
 
 
-    public KassaController() {
+    public KassaController()  {
 
         databaseController = new DatabaseController();
 
