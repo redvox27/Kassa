@@ -2,8 +2,10 @@ package Controller;
 
 import Logic.Product;
 import Model.KassaModel;
+import Vieuw.AbstractView;
 import Vieuw.KassaView;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by vincent on 4-9-2016.
@@ -12,15 +14,27 @@ public class KassaController {
     private KassaView view;
     private KassaModel model;
     private DatabaseController databaseController;
+    private ArrayList<KassaView> views = new ArrayList<KassaView>();
+
 
 
 
     public KassaController() {
-        view = new KassaView();
+
         databaseController = new DatabaseController();
 
 
         model = new KassaModel(databaseController.getEmployees());
-        System.out.println(model.getEmployee(1).toString());
+        view = new KassaView(model,this);
+    }
+
+    public void addView(KassaView view){
+        views.add(view);
+    }
+
+    public void notifyViews(){
+        for(KassaView view: views){
+            view.updateView();
+        }
     }
 }

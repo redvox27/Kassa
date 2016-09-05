@@ -57,14 +57,7 @@ public class KassaModel {
 
     }
 
-    public void addEmployees(Employee newEmployee){
-        if(newEmployee == null){
-            System.out.println("Vul een naam in");
-        }
-        else {
-            employeeList.add(newEmployee);
-        }
-    }
+
 
     public void addProducts(Product newProduct){
         if(newProduct == null){
